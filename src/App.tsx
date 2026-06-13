@@ -1,6 +1,6 @@
 const navItems = [
-  { label: "作品", href: "#work" },
   { label: "经历", href: "#experience" },
+  { label: "作品集", href: "#work" },
   { label: "能力", href: "#skills" },
   { label: "联系", href: "#contact" },
 ];
@@ -231,7 +231,7 @@ export default function App() {
       <section id="work" className="scroll-mt-28 border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[1700px]">
           <SectionHeading
-            eyebrow="精选项目"
+            eyebrow="作品集"
             title="这些项目展示我如何把提示词、结构和镜头运动转化为最终画面。"
             description="当前是基础版作品集结构，后续可以继续替换为真实作品封面、视频截图和项目详情。"
           />
