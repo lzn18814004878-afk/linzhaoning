@@ -175,24 +175,6 @@ export default function App() {
             </p>
           </div>
 
-          <div className="absolute bottom-20 left-6 right-6 md:bottom-24 md:left-10 md:right-10">
-            <div className="grid gap-3 border-y border-white/14 bg-black/22 py-4 backdrop-blur-[2px] md:grid-cols-3 md:gap-0 md:divide-x md:divide-white/14">
-              {stats.map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-end justify-between gap-4 px-1 md:px-7"
-                >
-                  <span className="text-3xl font-medium tracking-tight text-white md:text-5xl">
-                    {item.value}
-                  </span>
-                  <span className="pb-1 text-right text-xs text-white/62 md:text-sm">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-b from-transparent via-black/35 to-black" />
         </div>
       </section>
