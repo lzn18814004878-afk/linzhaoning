@@ -125,11 +125,11 @@ export default function App() {
         <div className="pointer-events-none absolute inset-0 z-10 bg-black/30" />
         <div className="hero-noise pointer-events-none absolute inset-0 z-10" />
 
-        <div className="absolute left-0 right-0 top-0 z-20 px-6 pt-6 md:px-10">
-          <nav className="flex items-center justify-between gap-4">
+        <div className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-10 md:pt-6">
+          <nav className="mx-auto flex max-w-[1700px] items-center justify-between gap-4 rounded-full border border-white/12 bg-neutral-950/55 px-2 py-2 shadow-[0_18px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-150">
             <a
               href="#hero"
-              className="flex items-center gap-2 rounded-full bg-neutral-900/90 py-3 pl-4 pr-6 backdrop-blur"
+              className="flex items-center gap-2 rounded-full bg-white/[0.06] py-3 pl-4 pr-6 backdrop-blur"
               aria-label="林钊宁作品集首页"
             >
               <PortfolioLogo />
@@ -138,7 +138,7 @@ export default function App() {
               </span>
             </a>
 
-            <div className="hidden items-center gap-1 rounded-full bg-neutral-900/90 px-3 py-2 backdrop-blur md:flex">
+            <div className="hidden items-center gap-1 rounded-full bg-white/[0.04] px-3 py-2 backdrop-blur md:flex">
               {navItems.map((item) => (
                 <a
                   href={item.href}
@@ -199,7 +199,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="experience" className="border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
+      <section id="experience" className="scroll-mt-28 border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[1700px]">
           <SectionHeading
             eyebrow="个人经历"
@@ -248,7 +248,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="work" className="border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
+      <section id="work" className="scroll-mt-28 border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[1700px]">
           <SectionHeading
             eyebrow="精选项目"
@@ -283,7 +283,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="skills" className="border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
+      <section id="skills" className="scroll-mt-28 border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[1700px]">
           <SectionHeading
             eyebrow="个人优势"
@@ -306,7 +306,7 @@ export default function App() {
 
       <section
         id="contact"
-        className="relative flex min-h-screen items-center overflow-hidden border-t border-white/10 bg-black px-6 py-24 md:px-10"
+        className="relative flex min-h-screen scroll-mt-28 items-center overflow-hidden border-t border-white/10 bg-black px-6 py-24 md:px-10"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-white/5" />
         <div className="relative mx-auto max-w-[1700px]">
