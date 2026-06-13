@@ -52,6 +52,12 @@ const projects = [
   },
 ];
 
+const archiveHighlights = [
+  { value: "03", label: "作品卡槽" },
+  { value: "01", label: "主视觉箱体" },
+  { value: "∞", label: "持续扩展" },
+];
+
 const skills = [
   {
     title: "AI 视频提示词设计",
@@ -70,6 +76,163 @@ const skills = [
     text: "具备工具落地、团队技术答疑、进度管理和生成质量把控经验。",
   },
 ];
+
+function WorkVault() {
+  return (
+    <div className="grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+      <div className="flex h-full flex-col justify-between rounded-[32px] border border-white/10 bg-white/[0.03] p-6 md:p-8">
+        <div>
+          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+            work archive
+          </p>
+          <h3 className="mt-4 max-w-xl text-3xl font-medium leading-tight text-white md:text-5xl">
+            把作品放进一个箱体里，每个项目都能独立存放。
+          </h3>
+          <p className="mt-5 max-w-xl text-sm leading-7 text-white/60 md:text-base">
+            这个板块不再是平铺的列表，而是更像一个作品收纳柜。左边是索引和说明，右边是打开后的箱体，项目按卡槽分层收纳。
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
+          {archiveHighlights.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-[22px] border border-white/10 bg-black/25 px-4 py-4 backdrop-blur"
+            >
+              <p className="text-3xl font-medium tracking-tight text-white">
+                {item.value}
+              </p>
+              <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">
+                {item.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded-[28px] border border-white/10 bg-black/30 p-4">
+          <p className="text-xs uppercase tracking-[0.28em] text-white/45">
+            storage list
+          </p>
+          <div className="mt-4 space-y-2">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className="flex items-center justify-between gap-4 rounded-[18px] border border-white/8 bg-white/[0.03] px-4 py-3"
+              >
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/40">
+                    slot {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="mt-1 text-sm text-white/90">{project.title}</p>
+                </div>
+                <span className="max-w-[180px] text-right text-xs text-white/45">
+                  {project.meta}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="relative overflow-hidden rounded-[34px] border border-white/12 bg-[linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03)_28%,rgba(0,0,0,0.92)_78%)] p-4 md:p-6">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.12),transparent_20%),radial-gradient(circle_at_82%_14%,rgba(255,255,255,0.08),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.05),transparent_26%,rgba(0,0,0,0.58)_100%)]" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[34%] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01)_68%,rgba(0,0,0,0.24))]" />
+        <div className="pointer-events-none absolute bottom-5 right-5 h-40 w-52 rounded-[30px] border border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]" />
+
+        <div className="relative h-[760px] md:h-[820px] [perspective:1800px]">
+          <div className="absolute left-7 top-7 z-20">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              portfolio box
+            </p>
+            <p className="mt-2 text-sm text-white/70">
+              作品卡片以档案方式收纳
+            </p>
+          </div>
+
+          <div className="absolute right-7 top-7 z-20 text-right">
+            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
+              2026 / portfolio
+            </p>
+            <p className="mt-2 text-sm text-white/70">
+              打开后看到的是独立作品槽
+            </p>
+          </div>
+
+          <div className="absolute inset-x-8 bottom-8 top-24">
+            {projects.map((project, index) => {
+              const offsetX = index * 54;
+              const offsetY = index * 34;
+              const rotation = [-7, -3, 2][index] ?? 0;
+
+              return (
+                <article
+                  key={project.title}
+                  className="absolute left-0 top-0 w-[72%] max-w-[560px] overflow-hidden rounded-[28px] border border-white/14 bg-neutral-950/92 shadow-[0_26px_80px_rgba(0,0,0,0.45)] backdrop-blur-lg"
+                  style={{
+                    transform: `translate3d(${offsetX}px, ${offsetY}px, ${index * 20}px) rotate(${rotation}deg)`,
+                    zIndex: 30 - index,
+                  }}
+                >
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover opacity-90"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/10 to-transparent" />
+                    <div className="absolute left-4 top-4 flex items-center gap-2">
+                      <span className="rounded-full border border-white/20 bg-black/45 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-white/75">
+                        slot {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+                        archive
+                      </span>
+                    </div>
+                  </div>
+                  <div className="border-t border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01))] p-5 md:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+                          {project.meta}
+                        </p>
+                        <h4 className="mt-2 text-2xl font-medium text-white">
+                          {project.title}
+                        </h4>
+                      </div>
+                      <span className="text-3xl font-medium tracking-tight text-white/35">
+                        0{index + 1}
+                      </span>
+                    </div>
+                    <p className="mt-4 max-w-lg text-sm leading-7 text-white/65">
+                      {project.desc}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="absolute bottom-8 right-8 z-40 w-[42%] min-w-[280px] rounded-[30px] border border-white/12 bg-black/55 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.28em] text-white/50">
+                front panel
+              </p>
+              <p className="text-sm text-white/70">portfolio storage</p>
+            </div>
+            <div className="space-y-3">
+              {[0, 1, 2].map((item) => (
+                <div
+                  key={item}
+                  className="h-10 rounded-full border border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function PortfolioLogo() {
   return (
@@ -232,10 +395,11 @@ export default function App() {
         <div className="mx-auto max-w-[1700px]">
           <SectionHeading
             eyebrow="作品集"
-            title="这些项目展示我如何把提示词、结构和镜头运动转化为最终画面。"
-            description="当前是基础版作品集结构，后续可以继续替换为真实作品封面、视频截图和项目详情。"
+            title="把作品收进一个收纳箱里，每个项目都有独立卡槽。"
+            description="左边是索引，右边是箱体视图；后续可以继续往里面补充新的作品卡片。"
           />
-          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <WorkVault />
+          <div className="hidden">
             <article className="overflow-hidden border border-white/10 bg-neutral-950">
               <img src={asset("project-ai-drama.png")} alt="AI 短剧生成流程" className="h-[520px] w-full object-cover" />
               <div className="p-6 md:p-8">
