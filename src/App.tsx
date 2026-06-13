@@ -5,6 +5,8 @@ const navItems = [
   { label: "联系", href: "#contact" },
 ];
 
+const asset = (fileName: string) => `${import.meta.env.BASE_URL}${fileName}`;
+
 const stats = [
   { value: "+2", label: "AI 视频相关经历" },
   { value: "2026", label: "美术学本科" },
@@ -33,19 +35,19 @@ const projects = [
   {
     title: "AI 短剧生成流程",
     meta: "剧本 / 提示词 / 生成 / 成片",
-    image: "/project-ai-drama.png",
+    image: asset("project-ai-drama.png"),
     desc: "从剧本拆解、素材处理、提示词撰写到 AI 成片输出，关注短剧叙事节奏、情绪推进和角色表现力。",
   },
   {
     title: "2D AI 漫剧视觉制作",
     meta: "角色 / 场景 / 分镜 / 包装",
-    image: "/project-character.png",
+    image: asset("project-character.png"),
     desc: "参与 2D AI 漫剧项目制作，负责角色、场景、分镜与后期包装，处理人物和场景一致性问题。",
   },
   {
     title: "AIGC 工具工作流搭建",
     meta: "ComfyUI / SD / Midjourney / Sora",
-    image: "/project-workflow.png",
+    image: asset("project-workflow.png"),
     desc: "引入并优化 AIGC 工具流程，让技术快速适配真人剧和漫剧的生产需求，提升制作效率与内容质量。",
   },
 ];
@@ -114,7 +116,7 @@ export default function App() {
       <section className="relative h-screen w-full overflow-hidden bg-black">
         <video
           className="absolute inset-0 h-full w-full object-cover"
-          src="/video-1781348643.mp4"
+          src={asset("video-1781348643.mp4")}
           autoPlay
           loop
           muted
@@ -207,7 +209,7 @@ export default function App() {
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="overflow-hidden border border-white/10 bg-neutral-950">
               <img
-                src="/profile-figure.png"
+                src={asset("profile-figure.png")}
                 alt="林钊宁人物视觉"
                 className="h-full w-full object-cover"
               />
@@ -255,7 +257,7 @@ export default function App() {
           />
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <article className="overflow-hidden border border-white/10 bg-neutral-950">
-              <img src="/project-ai-drama.png" alt="AI 短剧生成流程" className="h-[520px] w-full object-cover" />
+              <img src={asset("project-ai-drama.png")} alt="AI 短剧生成流程" className="h-[520px] w-full object-cover" />
               <div className="p-6 md:p-8">
                 <p className="text-xs uppercase tracking-[0.24em] text-white/45">剧本 / 提示词 / 生成 / 成片</p>
                 <h3 className="mt-3 text-2xl font-medium uppercase tracking-tight md:text-4xl">AI 短剧生成流程</h3>
