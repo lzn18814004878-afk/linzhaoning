@@ -7,232 +7,62 @@ const navItems = [
 
 const asset = (fileName: string) => `${import.meta.env.BASE_URL}${fileName}`;
 
-const stats = [
-  { value: "+2", label: "AI 视频相关经历" },
-  { value: "2026", label: "美术学本科" },
-  { value: "6+", label: "AIGC 工具能力" },
-];
-
-const experience = [
+const chapters = [
   {
-    time: "2026.01 - 2026.04",
-    title: "广州漫飞网络科技 · AI 漫剧制作组长",
-    desc: "负责 AIGC 最新软件与工具的引入、调试与应用，搭建高效生产流程，解答团队技术问题，并把控 AI 真人剧 / 漫剧项目的生成进度与质量。",
+    code: "chapter 01 / 05",
+    object: "origin",
+    year: "2022 - 2026",
+    title: "肇庆学院",
+    kicker: "美术学本科",
+    copy: "在美术、广告设计、场景设计、角色设计与影视后期里建立视觉基础，也开始把镜头语言当成作品的骨架。",
   },
   {
-    time: "2025.10 - 2026.01",
-    title: "广州欢聚时代信息科技有限公司 · AI 动画师",
-    desc: "参与 2D AI 漫剧项目策划与制作，负责角色与场景设计、动画制作、分镜设计、人物场景一致性解决，以及后期包装处理。",
+    code: "chapter 02 / 05",
+    object: "motion",
+    year: "2025",
+    title: "AI 漫剧视觉",
+    kicker: "角色 / 场景 / 分镜 / 包装",
+    copy: "参与 2D AI 漫剧项目制作，处理人物、场景、分镜和后期包装，让画面在批量生成中保持统一。",
   },
   {
-    time: "2022.09 - 2026.06",
-    title: "肇庆学院 · 美术学本科",
-    desc: "主修实用美术与广告设计、场景设计、角色设计、影视导演基础、影视后期制作等课程，具备视觉设计与影像表达基础。",
+    code: "chapter 03 / 05",
+    object: "system",
+    year: "2026",
+    title: "AI 制作组长",
+    kicker: "工具引入 / 流程搭建 / 质量把控",
+    copy: "负责 AIGC 工具引入、调试和落地，搭建高效生产流程，并把控真人剧与漫剧项目的生成进度和质量。",
   },
 ];
 
 const projects = [
   {
     title: "AI 短剧生成流程",
-    meta: "剧本 / 提示词 / 生成 / 成片",
+    meta: "script / prompt / generate / edit",
     image: asset("project-ai-drama.png"),
     desc: "从剧本拆解、素材处理、提示词撰写到 AI 成片输出，关注短剧叙事节奏、情绪推进和角色表现力。",
   },
   {
     title: "2D AI 漫剧视觉制作",
-    meta: "角色 / 场景 / 分镜 / 包装",
+    meta: "character / scene / storyboard",
     image: asset("project-character.png"),
-    desc: "参与 2D AI 漫剧项目制作，负责角色、场景、分镜与后期包装，处理人物和场景一致性问题。",
+    desc: "负责角色、场景、分镜与后期包装，处理人物和场景的一致性问题。",
   },
   {
     title: "AIGC 工具工作流搭建",
-    meta: "ComfyUI / SD / Midjourney / Sora",
+    meta: "comfyui / sd / midjourney / sora",
     image: asset("project-workflow.png"),
-    desc: "引入并优化 AIGC 工具流程，让技术快速适配真人剧和漫剧的生产需求，提升制作效率与内容质量。",
+    desc: "引入并优化 AIGC 工具流程，让技术快速适配真人剧和漫剧的生产需求。",
   },
-];
-
-const archiveHighlights = [
-  { value: "03", label: "作品卡槽" },
-  { value: "01", label: "主视觉箱体" },
-  { value: "∞", label: "持续扩展" },
 ];
 
 const skills = [
-  {
-    title: "AI 视频提示词设计",
-    text: "能围绕人物表情、动作、镜头语言与剧情张力，构建更精准、可执行的提示词。",
-  },
-  {
-    title: "短剧叙事与镜头语言",
-    text: "理解短剧叙事逻辑，对节奏、情绪、分镜和角色表现力有较好的把控。",
-  },
-  {
-    title: "AIGC 工作流搭建",
-    text: "熟悉 Stable Diffusion、Midjourney、ComfyUI、Sora、海螺、即梦等 AI 视频工具。",
-  },
-  {
-    title: "项目推进与质量把控",
-    text: "具备工具落地、团队技术答疑、进度管理和生成质量把控经验。",
-  },
+  "AI 视频提示词设计",
+  "短剧叙事与镜头节奏",
+  "AIGC 工作流搭建",
+  "角色与场景一致性",
+  "项目推进与质量把控",
+  "后期包装与画面整理",
 ];
-
-function WorkVault() {
-  return (
-    <div className="grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
-      <div className="flex h-full flex-col justify-between rounded-[32px] border border-white/10 bg-white/[0.03] p-6 md:p-8">
-        <div>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-            work archive
-          </p>
-          <h3 className="mt-4 max-w-xl text-3xl font-medium leading-tight text-white md:text-5xl">
-            把作品放进一个箱体里，每个项目都能独立存放。
-          </h3>
-          <p className="mt-5 max-w-xl text-sm leading-7 text-white/60 md:text-base">
-            这个板块不再是平铺的列表，而是更像一个作品收纳柜。左边是索引和说明，右边是打开后的箱体，项目按卡槽分层收纳。
-          </p>
-        </div>
-
-        <div className="mt-8 grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
-          {archiveHighlights.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-[22px] border border-white/10 bg-black/25 px-4 py-4 backdrop-blur"
-            >
-              <p className="text-3xl font-medium tracking-tight text-white">
-                {item.value}
-              </p>
-              <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">
-                {item.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-8 rounded-[28px] border border-white/10 bg-black/30 p-4">
-          <p className="text-xs uppercase tracking-[0.28em] text-white/45">
-            storage list
-          </p>
-          <div className="mt-4 space-y-2">
-            {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className="flex items-center justify-between gap-4 rounded-[18px] border border-white/8 bg-white/[0.03] px-4 py-3"
-              >
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/40">
-                    slot {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <p className="mt-1 text-sm text-white/90">{project.title}</p>
-                </div>
-                <span className="max-w-[180px] text-right text-xs text-white/45">
-                  {project.meta}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="relative overflow-hidden rounded-[34px] border border-white/12 bg-[linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03)_28%,rgba(0,0,0,0.92)_78%)] p-4 md:p-6">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.12),transparent_20%),radial-gradient(circle_at_82%_14%,rgba(255,255,255,0.08),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.05),transparent_26%,rgba(0,0,0,0.58)_100%)]" />
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[34%] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01)_68%,rgba(0,0,0,0.24))]" />
-        <div className="pointer-events-none absolute bottom-5 right-5 h-40 w-52 rounded-[30px] border border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]" />
-
-        <div className="relative h-[760px] md:h-[820px] [perspective:1800px]">
-          <div className="absolute left-7 top-7 z-20">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              portfolio box
-            </p>
-            <p className="mt-2 text-sm text-white/70">
-              作品卡片以档案方式收纳
-            </p>
-          </div>
-
-          <div className="absolute right-7 top-7 z-20 text-right">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">
-              2026 / portfolio
-            </p>
-            <p className="mt-2 text-sm text-white/70">
-              打开后看到的是独立作品槽
-            </p>
-          </div>
-
-          <div className="absolute inset-x-8 bottom-8 top-24">
-            {projects.map((project, index) => {
-              const offsetX = index * 54;
-              const offsetY = index * 34;
-              const rotation = [-7, -3, 2][index] ?? 0;
-
-              return (
-                <article
-                  key={project.title}
-                  className="absolute left-0 top-0 w-[72%] max-w-[560px] overflow-hidden rounded-[28px] border border-white/14 bg-neutral-950/92 shadow-[0_26px_80px_rgba(0,0,0,0.45)] backdrop-blur-lg"
-                  style={{
-                    transform: `translate3d(${offsetX}px, ${offsetY}px, ${index * 20}px) rotate(${rotation}deg)`,
-                    zIndex: 30 - index,
-                  }}
-                >
-                  <div className="relative h-56 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover opacity-90"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/10 to-transparent" />
-                    <div className="absolute left-4 top-4 flex items-center gap-2">
-                      <span className="rounded-full border border-white/20 bg-black/45 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-white/75">
-                        slot {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                        archive
-                      </span>
-                    </div>
-                  </div>
-                  <div className="border-t border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01))] p-5 md:p-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                          {project.meta}
-                        </p>
-                        <h4 className="mt-2 text-2xl font-medium text-white">
-                          {project.title}
-                        </h4>
-                      </div>
-                      <span className="text-3xl font-medium tracking-tight text-white/35">
-                        0{index + 1}
-                      </span>
-                    </div>
-                    <p className="mt-4 max-w-lg text-sm leading-7 text-white/65">
-                      {project.desc}
-                    </p>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="absolute bottom-8 right-8 z-40 w-[42%] min-w-[280px] rounded-[30px] border border-white/12 bg-black/55 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl">
-            <div className="mb-5 flex items-center justify-between gap-4">
-              <p className="text-xs uppercase tracking-[0.28em] text-white/50">
-                front panel
-              </p>
-              <p className="text-sm text-white/70">portfolio storage</p>
-            </div>
-            <div className="space-y-3">
-              {[0, 1, 2].map((item) => (
-                <div
-                  key={item}
-                  className="h-10 rounded-full border border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function PortfolioLogo() {
   return (
@@ -245,237 +75,403 @@ function PortfolioLogo() {
   );
 }
 
-function SectionHeading({
-  eyebrow,
-  title,
-  description,
-}: {
-  eyebrow: string;
-  title: string;
-  description?: string;
-}) {
+function VideoBackdrop({ dim = "bg-black/56" }: { dim?: string }) {
   return (
-    <div className="mb-12 flex items-end justify-between gap-8">
-      <div>
-        <p className="mb-4 text-xs uppercase tracking-[0.28em] text-white/50">
-          {eyebrow}
-        </p>
-        <h2 className="max-w-3xl text-3xl font-medium leading-tight text-white md:text-5xl">
-          {title}
-        </h2>
+    <>
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src={asset("video-1781348643.mp4")}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+      />
+      <div className={`absolute inset-0 ${dim}`} />
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-black" />
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/70 to-transparent" />
+    </>
+  );
+}
+
+function NavBar() {
+  return (
+    <header className="fixed left-0 right-0 top-0 z-50 px-6 pt-6 md:px-10">
+      <nav className="mx-auto grid max-w-[1700px] grid-cols-[1fr_auto_auto] items-center">
+        <a
+          href="#hero"
+          className="flex h-16 items-center gap-3 bg-black/55 px-4 backdrop-blur-xl md:px-6"
+          aria-label="林钊宁作品集首页"
+        >
+          <PortfolioLogo />
+          <span className="text-base font-medium text-white">林钊宁</span>
+          <span className="hidden text-[11px] uppercase tracking-[0.3em] text-white/45 md:inline">
+            / linzhaoning studio
+          </span>
+        </a>
+
+        <div className="hidden h-16 items-center bg-black/55 backdrop-blur-xl md:flex">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              key={item.href}
+              className="flex h-full items-center px-8 text-xs uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        <a
+          href="#contact"
+          className="flex h-16 items-center bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-neutral-200 md:px-9"
+        >
+          联系我
+        </a>
+      </nav>
+    </header>
+  );
+}
+
+function HeroIdCard() {
+  return (
+    <div className="absolute bottom-20 right-10 hidden w-[310px] border border-white/12 bg-black/70 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.55)] backdrop-blur-xl lg:block">
+      <div className="mb-3 flex items-center justify-between border-b border-white/12 pb-3">
+        <span className="text-4xl font-semibold uppercase leading-none text-white">
+          LIN
+        </span>
+        <span className="text-[11px] uppercase tracking-[0.26em] text-white/45">
+          creator id
+        </span>
       </div>
-      {description ? (
-        <p className="hidden max-w-xl text-sm leading-relaxed text-white/55 md:block">
-          {description}
-        </p>
-      ) : null}
+      <div className="grid grid-cols-[0.9fr_1.1fr] gap-4">
+        <img
+          src={asset("profile-figure.png")}
+          alt="林钊宁个人视觉"
+          className="h-40 w-full object-cover grayscale"
+        />
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">
+            AI video designer
+          </p>
+          <p className="mt-3 text-sm leading-6 text-white/78">
+            产品视频设计师 / AI 视频设计师，擅长把故事转化为可交付影像。
+          </p>
+          <div className="mt-5 h-8 bg-[repeating-linear-gradient(90deg,#fff_0_2px,transparent_2px_6px)] opacity-70" />
+        </div>
+      </div>
     </div>
+  );
+}
+
+function ChapterCard({
+  chapter,
+  index,
+}: {
+  chapter: (typeof chapters)[number];
+  index: number;
+}) {
+  const alignRight = index % 2 === 0;
+
+  return (
+    <section
+      className="cinema-section relative h-[150vh] scroll-mt-28 bg-black"
+    >
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden px-6 py-28 md:px-10">
+        <VideoBackdrop dim={index === 1 ? "bg-black/62" : "bg-black/58"} />
+        <div className="cinema-panel relative mx-auto grid w-full max-w-[1700px] gap-10 lg:grid-cols-2">
+        <div className={alignRight ? "lg:col-start-2" : ""}>
+          <p className="text-[11px] uppercase tracking-[0.34em] text-white/45">
+            {chapter.code}
+          </p>
+          <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-white/45">
+            object · {chapter.object}
+          </p>
+          <div className="mt-16">
+            <p className="text-6xl font-light leading-none text-white md:text-8xl">
+              {chapter.year}
+            </p>
+            <h2 className="mt-8 text-6xl font-medium uppercase leading-none text-white md:text-8xl">
+              {chapter.title}
+            </h2>
+            <p className="mt-3 text-[11px] uppercase tracking-[0.32em] text-white/45">
+              {chapter.kicker}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-end">
+          <div className="max-w-xl">
+            <h3 className="text-3xl font-medium leading-tight text-white md:text-5xl">
+              {chapter.copy}
+            </h3>
+            <p className="mt-6 max-w-md text-sm leading-7 text-white/55">
+              这些经历共同形成现在的工作方式：先理解内容，再设计镜头，最后把 AI 工具变成稳定的生产流程。
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WorkArchive() {
+  return (
+    <section
+      id="work"
+      className="relative min-h-screen scroll-mt-28 overflow-hidden border-t border-white/10 bg-black px-6 py-28 md:px-10"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.12),transparent_22%),linear-gradient(180deg,#050505,#000)]" />
+      <div className="relative mx-auto max-w-[1700px]">
+        <div className="mb-12 flex items-end justify-between gap-8">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.34em] text-white/45">
+              chapter 04 / 05 · work archive
+            </p>
+            <h2 className="mt-6 max-w-5xl text-5xl font-medium leading-none text-white md:text-8xl">
+              Portfolio storage.
+              <br />
+              每个作品一个卡槽。
+            </h2>
+          </div>
+          <p className="hidden max-w-md text-right text-sm leading-7 text-white/55 lg:block">
+            参考视频里的黑白档案视觉，把作品集做成一个打开的收纳箱：卡片、编号、索引和前面板都围绕“存放作品”展开。
+          </p>
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-[0.78fr_1.22fr]">
+          <aside className="flex min-h-[720px] flex-col justify-between border border-white/12 bg-white/[0.03] p-6 backdrop-blur md:p-8">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.34em] text-white/45">
+                storage list
+              </p>
+              <h3 className="mt-6 text-4xl font-medium leading-tight text-white md:text-6xl">
+                一个箱体，
+                <br />
+                三个项目档案。
+              </h3>
+            </div>
+            <div className="space-y-3">
+              {projects.map((project, index) => (
+                <a
+                  href="#contact"
+                  key={project.title}
+                  className="group flex items-center justify-between gap-6 border border-white/10 bg-black/30 px-5 py-5 transition-colors hover:bg-white hover:text-black"
+                >
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.28em] text-white/40 group-hover:text-black/45">
+                      slot {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-2 text-xl font-medium">{project.title}</p>
+                  </div>
+                  <span className="text-3xl leading-none text-white/35 group-hover:text-black/40">
+                    →
+                  </span>
+                </a>
+              ))}
+            </div>
+          </aside>
+
+          <div className="relative min-h-[720px] overflow-hidden border border-white/12 bg-neutral-950 p-6 shadow-[0_40px_120px_rgba(0,0,0,0.55)]">
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.1),transparent_35%),radial-gradient(circle_at_85%_80%,rgba(255,255,255,0.12),transparent_26%)]" />
+            <div className="absolute bottom-8 right-8 z-30 w-[44%] min-w-[300px] border border-white/12 bg-black/72 p-5 backdrop-blur-xl">
+              <div className="mb-5 flex items-center justify-between">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                  front panel
+                </p>
+                <p className="text-sm text-white/65">portfolio box</p>
+              </div>
+              <div className="space-y-3">
+                <div className="h-11 border border-white/10 bg-white/[0.04]" />
+                <div className="h-11 border border-white/10 bg-white/[0.04]" />
+                <div className="h-11 border border-white/10 bg-white/[0.04]" />
+              </div>
+            </div>
+
+            {projects.map((project, index) => {
+              const positions = [
+                "left-[7%] top-[12%] rotate-[-6deg]",
+                "left-[18%] top-[20%] rotate-[-1deg]",
+                "left-[29%] top-[28%] rotate-[5deg]",
+              ];
+
+              return (
+                <article
+                  key={project.title}
+                  className={`absolute z-20 w-[58%] max-w-[560px] overflow-hidden border border-white/14 bg-black/80 shadow-[0_24px_80px_rgba(0,0,0,0.58)] backdrop-blur ${positions[index]}`}
+                >
+                  <div className="relative h-60 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover grayscale"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                    <span className="absolute left-4 top-4 border border-white/20 bg-black/55 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-white/75">
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+                      {project.meta}
+                    </p>
+                    <h3 className="mt-3 text-3xl font-medium text-white">
+                      {project.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-white/62">
+                      {project.desc}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SkillsSection() {
+  return (
+    <section
+      id="skills"
+      className="relative min-h-screen scroll-mt-28 overflow-hidden border-t border-white/10 bg-black px-6 py-28 md:px-10"
+    >
+      <VideoBackdrop dim="bg-black/72" />
+      <div className="relative mx-auto grid max-w-[1700px] gap-12 lg:grid-cols-[1fr_1.1fr]">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.34em] text-white/45">
+            chapter 05 / 05 · toolkit
+          </p>
+          <h2 className="mt-8 text-6xl font-medium leading-none text-white md:text-8xl">
+            Making art
+            <br />
+            with the machine.
+          </h2>
+        </div>
+        <div className="grid content-end gap-3">
+          {skills.map((skill, index) => (
+            <div
+              key={skill}
+              className="grid grid-cols-[80px_1fr] items-center border-t border-white/12 py-5"
+            >
+              <span className="text-sm text-white/35">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-3xl font-medium text-white md:text-5xl">
+                {skill}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section
+      id="contact"
+      className="relative flex min-h-screen scroll-mt-28 items-center overflow-hidden border-t border-white/10 bg-black px-6 py-28 md:px-10"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.12),transparent_26%),linear-gradient(180deg,#050505,#000)]" />
+      <div className="relative mx-auto w-full max-w-[1700px]">
+        <p className="text-[11px] uppercase tracking-[0.34em] text-white/45">
+          contact · audience of one
+        </p>
+        <h2 className="mt-8 max-w-6xl text-6xl font-medium leading-none text-white md:text-8xl">
+          一起把下一个故事，
+          <br />
+          做成更有张力的画面。
+        </h2>
+        <div className="mt-12 flex flex-wrap gap-3">
+          <a
+            href="mailto:1760386584@qq.com"
+            className="bg-white px-8 py-5 text-sm font-medium text-black transition-colors hover:bg-neutral-200"
+          >
+            1760386584@qq.com
+          </a>
+          <a
+            href="tel:18814004878"
+            className="border border-white/12 bg-white/[0.04] px-8 py-5 text-sm font-medium text-white/80"
+          >
+            18814004878
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
 export default function App() {
   return (
     <main className="bg-black text-white">
-      <section className="relative h-screen w-full overflow-hidden bg-black">
-        <video
-          className="absolute inset-0 h-full w-full object-cover brightness-[1.06] contrast-[1.08] saturate-[1.06]"
-          src={asset("video-1781348643.mp4")}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-black/16" />
-
-        <div className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-10 md:pt-6">
-          <nav className="mx-auto flex max-w-[1700px] items-center justify-between gap-4 rounded-full border border-white/12 bg-neutral-950/55 px-2 py-2 shadow-[0_18px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-150">
-            <a
-              href="#hero"
-              className="flex items-center gap-2 rounded-full bg-white/[0.06] py-3 pl-4 pr-6 backdrop-blur"
-              aria-label="林钊宁作品集首页"
-            >
-              <PortfolioLogo />
-              <span className="text-sm font-normal tracking-tight text-white">
-                林钊宁
-              </span>
-            </a>
-
-            <div className="hidden items-center gap-1 rounded-full bg-white/[0.04] px-3 py-2 backdrop-blur md:flex">
-              {navItems.map((item) => (
-                <a
-                  href={item.href}
-                  key={item.label}
-                  className="rounded-full px-5 py-2 text-sm text-neutral-300 transition-colors hover:text-white"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-
-            <a
-              href="#contact"
-              className="rounded-full bg-white px-6 py-3 text-sm font-normal text-black transition-colors hover:bg-neutral-200"
-            >
-              联系我
-            </a>
-          </nav>
-        </div>
-
-        <div className="relative z-10 h-full w-full" id="hero">
-          <div className="absolute left-6 top-[22%] max-w-[1120px] md:left-10 md:top-[20%]">
-            <p className="mb-5 text-xs uppercase tracking-[0.34em] text-white/55 md:text-sm">
-              AI VIDEO DESIGNER · SHORT DRAMA MAKER
-            </p>
-            <h1 className="hero-title max-w-[1280px] text-[15vw] font-medium text-white md:text-[10.5vw]">
-              Linzhaoning
-            </h1>
-          </div>
-
-          <div className="absolute right-6 top-[48%] max-w-[360px] -translate-y-1/2 md:right-12">
-            <p className="text-right text-[15px] leading-7 text-white/82 md:text-base">
-              产品视频设计师 / AI 视频设计师，擅长用提示词、镜头节奏和短剧逻辑，把故事转化为可交付的影像成片。
-            </p>
-          </div>
-
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-b from-transparent via-black/35 to-black" />
-        </div>
-      </section>
-
-      <section id="experience" className="scroll-mt-28 border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1700px]">
-          <SectionHeading
-            eyebrow="个人经历"
-            title="从美术视觉到 AI 视频生产，我负责把创意、工具和成片流程串起来。"
-            description="我关注 AIGC 在真人剧与漫剧领域的技术应用，能推进剧本理解、提示词设计、场景一致性、动画分镜、后期包装和团队技术支持。"
-          />
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="overflow-hidden border border-white/10 bg-neutral-950">
-              <img
-                src={asset("profile-figure.png")}
-                alt="林钊宁人物视觉"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div>
-              <div className="grid gap-5">
-                {experience.map((item) => (
-                  <article key={item.time} className="border-t border-white/10 pt-5 first:border-t-0 first:pt-0">
-                    <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-                      {item.time}
-                    </p>
-                    <h3 className="mt-3 text-xl font-medium uppercase tracking-tight text-white md:text-2xl">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 max-w-3xl text-sm leading-7 text-white/65">
-                      {item.desc}
-                    </p>
-                  </article>
-                ))}
-              </div>
-
-              <div className="mt-10 grid gap-3 md:grid-cols-3">
-                {stats.map((item) => (
-                  <div key={item.label} className="border border-white/10 bg-white/[0.03] p-5">
-                    <p className="text-3xl font-medium tracking-tight text-white md:text-4xl">
-                      {item.value}
-                    </p>
-                    <p className="mt-3 text-xs uppercase tracking-[0.24em] text-white/60">
-                      {item.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" className="scroll-mt-28 border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1700px]">
-          <SectionHeading
-            eyebrow="作品集"
-            title="把作品收进一个收纳箱里，每个项目都有独立卡槽。"
-            description="左边是索引，右边是箱体视图；后续可以继续往里面补充新的作品卡片。"
-          />
-          <WorkVault />
-          <div className="hidden">
-            <article className="overflow-hidden border border-white/10 bg-neutral-950">
-              <img src={asset("project-ai-drama.png")} alt="AI 短剧生成流程" className="h-[520px] w-full object-cover" />
-              <div className="p-6 md:p-8">
-                <p className="text-xs uppercase tracking-[0.24em] text-white/45">剧本 / 提示词 / 生成 / 成片</p>
-                <h3 className="mt-3 text-2xl font-medium uppercase tracking-tight md:text-4xl">AI 短剧生成流程</h3>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65">
-                  从剧本拆解、素材处理、提示词撰写到 AI 成片输出，关注短剧叙事节奏、情绪推进和角色表现力。
-                </p>
-              </div>
-            </article>
-
-            <div className="grid gap-6">
-              {projects.slice(1).map((project) => (
-                <article key={project.title} className="overflow-hidden border border-white/10 bg-neutral-950">
-                  <img src={project.image} alt={project.title} className="h-64 w-full object-cover" />
-                  <div className="p-6">
-                    <p className="text-xs uppercase tracking-[0.24em] text-white/45">{project.meta}</p>
-                    <h3 className="mt-3 text-xl font-medium uppercase tracking-tight md:text-2xl">{project.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-white/65">{project.desc}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" className="scroll-mt-28 border-t border-white/10 bg-black px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1700px]">
-          <SectionHeading
-            eyebrow="个人优势"
-            title="当 AI 视频既需要审美，也需要稳定执行时，我能提供这些能力。"
-          />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {skills.map((skill) => (
-              <article key={skill.title} className="min-h-[220px] border border-white/10 bg-white/[0.03] p-6 md:p-8">
-                <h3 className="text-xl font-medium uppercase tracking-tight text-white">
-                  {skill.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-white/65">
-                  {skill.text}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NavBar />
 
       <section
-        id="contact"
-        className="relative flex min-h-screen scroll-mt-28 items-center overflow-hidden border-t border-white/10 bg-black px-6 py-24 md:px-10"
+        id="hero"
+        className="relative h-screen w-full overflow-hidden bg-black px-6 md:px-10"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-white/5" />
-        <div className="relative mx-auto max-w-[1700px]">
-          <p className="mb-4 text-xs uppercase tracking-[0.28em] text-white/50">
-            联系方式
-          </p>
-          <h2 className="max-w-5xl text-4xl font-medium uppercase tracking-tight md:text-7xl">
-            一起把下一个故事，做成更有张力、更干净、更能被看见的画面。
-          </h2>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href="mailto:1760386584@qq.com"
-              className="rounded-full bg-white px-6 py-3 text-sm font-normal text-black transition-colors hover:bg-neutral-200"
-            >
-              1760386584@qq.com
-            </a>
-            <a
-              href="tel:18814004878"
-              className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-normal text-white/80"
-            >
-              18814004878
-            </a>
+        <VideoBackdrop dim="bg-black/48" />
+        <div className="relative mx-auto flex h-full max-w-[1700px] items-end pb-24">
+          <div className="w-full">
+            <div className="mb-16 flex justify-between gap-8">
+              <p className="text-[11px] uppercase tracking-[0.34em] text-white/45 md:text-xs">
+                AI video designer · short drama maker
+              </p>
+              <p className="hidden max-w-xs text-right text-2xl leading-tight text-white/75 lg:block">
+                Product video designer.
+                <br />
+                AIGC artist.
+                <br />
+                A studio of one.
+              </p>
+            </div>
+
+            <h1 className="hero-title max-w-6xl text-5xl font-medium leading-none text-white md:text-7xl xl:text-8xl">
+              By day, I build AI videos.
+              <br />
+              By night, I make visual stories.
+              <br />
+              Same machine. Different rules.
+            </h1>
           </div>
         </div>
+        <HeroIdCard />
       </section>
+
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-black px-6 py-28 md:px-10">
+        <VideoBackdrop dim="bg-black/60" />
+        <div className="relative mx-auto w-full max-w-[1700px]">
+          <h2 className="max-w-6xl text-5xl font-medium leading-tight text-white md:text-7xl">
+            A video designer who builds images with prompts by day.
+            <br />
+            An artist who lets characters move by night.
+            <br />
+            Same machine. Different rules.
+          </h2>
+          <p className="mt-20 max-w-md text-sm leading-7 text-white/55">
+            当前 · studio 01 / 把短剧逻辑、镜头节奏和 AI 工具整合成稳定的视觉生产方式。
+          </p>
+        </div>
+      </section>
+
+      <div id="experience">
+        {chapters.map((chapter, index) => (
+          <ChapterCard
+            chapter={chapter}
+            index={index}
+            key={chapter.title}
+          />
+        ))}
+      </div>
+
+      <WorkArchive />
+      <SkillsSection />
+      <ContactSection />
     </main>
   );
 }
