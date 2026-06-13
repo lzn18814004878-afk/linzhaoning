@@ -164,10 +164,8 @@ export default function App() {
             <p className="mb-5 text-xs uppercase tracking-[0.34em] text-white/55 md:text-sm">
               AI VIDEO DESIGNER · SHORT DRAMA MAKER
             </p>
-            <h1 className="hero-title max-w-[980px] text-[17vw] font-medium text-white md:text-[9.6vw]">
-              AI 视频
-              <br />
-              设计师
+            <h1 className="hero-title max-w-[1280px] text-[15vw] font-medium text-white md:text-[10.5vw]">
+              Linzhaoning
             </h1>
           </div>
 
