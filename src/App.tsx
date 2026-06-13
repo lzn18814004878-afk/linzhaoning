@@ -115,15 +115,15 @@ export default function App() {
     <main className="bg-black text-white">
       <section className="relative h-screen w-full overflow-hidden bg-black">
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover brightness-[1.06] contrast-[1.08] saturate-[1.06]"
           src={asset("video-1781348643.mp4")}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
         />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-black/30" />
-        <div className="hero-noise pointer-events-none absolute inset-0 z-10" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-black/16" />
 
         <div className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-10 md:pt-6">
           <nav className="mx-auto flex max-w-[1700px] items-center justify-between gap-4 rounded-full border border-white/12 bg-neutral-950/55 px-2 py-2 shadow-[0_18px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-150">
