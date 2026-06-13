@@ -1,0 +1,8 @@
+.vercel
+node_modules
+dist
+.DS_Store
+*.pptx
+*.docx
+public/hero-frames
+generate_*.js
